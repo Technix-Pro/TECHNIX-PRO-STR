@@ -3,37 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Przykładowa strona internetowa w HTML5">
-    <title>Moja pierwsza strona</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TECHNIX-PRO | Zbuduj Swój Sukces Partnerski</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(22, 22, 34, 0.65);
+            --bg-card-border: rgba(168, 85, 247, 0.25);
+            --purple-main: #a855f7;
+            --purple-glow: rgba(168, 85, 247, 0.5);
+            --purple-light: #c084fc;
+            --purple-dark: #7e22ce;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(126, 34, 206, 0.15) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 48px;
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--purple-main);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 8px var(--purple-glow);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: 0 0 15px var(--purple-glow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--purple-main);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 48px 60px;
+        }
+
+        /* HERO SECTION - ASYMMETRIC GRID */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            margin-bottom: 24px;
+            align-items: stretch;
+        }
+
+        .hero-card-left {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 20px;
+            padding: 56px;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-card-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-title span {
+            color: var(--purple-main);
+            text-shadow: 0 0 12px var(--purple-glow);
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 36px;
+            max-width: 90%;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--purple-main), var(--purple-dark));
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 0 20px var(--purple-glow);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--purple-main);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--purple-main);
+        }
+
+        /* HERO GRAPHIC RIGHT */
+        .hero-card-right {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            min-height: 420px;
+        }
+
+        .graphic-3d {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* LOWER SECTION - CARDS GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .feature-card:hover {
+            border-color: var(--purple-main);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(168, 85, 247, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .card-illustration {
+            width: 100%;
+            height: 160px;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            background: rgba(10, 10, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-explore {
+            display: inline-block;
+            align-self: flex-start;
+            background: var(--purple-main);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            box-shadow: 0 0 12px var(--purple-glow);
+            transition: all 0.3s ease;
+        }
+
+        .btn-explore:hover {
+            background: var(--purple-light);
+            box-shadow: 0 0 20px var(--purple-main);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px 48px;
+            max-width: 1440px;
+            margin: 40px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 20px 24px;
+            }
+            .container {
+                padding: 0 24px 40px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Witaj na mojej stronie!</h1>
+        <a href="#" class="logo">TECHNIX<span>-PRO</span></a>
         <nav>
-            <ul>
-                <li><a href="#o-nas">O nas</a></li>
-                <li><a href="#oferta">Oferta</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
+            <a href="#">O Nas</a>
+            <a href="#">Korzyści</a>
+            <a href="#">Narzędzia</a>
+            <a href="#">Prowizje</a>
+            <a href="#">Zasady</a>
         </nav>
+        <a href="#" class="btn-register">Zarejestruj się</a>
     </header>
 
-    <main>
-        <section id="o-nas">
-            <h2>O nas</h2>
-            <p>To jest przykładowy akapit tekstu na stronie głównej.</p>
-        </section>
+    <div class="container">
+        <!-- HERO SECTION -->
+        <div class="hero-grid">
+            <div class="hero-card-left">
+                <h1 class="hero-title">TECHNIX-PRO:<br>ZBUDUJ SWÓJ<br><span>SUKCES PARTNERSKI</span></h1>
+                <p class="hero-desc">Dołącz do elitarnej sieci partnerów. Promuj innowacyjne rozwiązania, zarabiaj wysokie prowizje i rozwijaj swój biznes z liderem branży.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">Zarejestruj się teraz</a>
+                    <a href="#" class="btn-secondary">Pobierz pakiet startowy</a>
+                </div>
+            </div>
 
-        <section id="oferta">
-            <h2>Nasza oferta</h2>
-            <p>Tutaj możesz opisać swoje usługi lub produkty.</p>
-        </section>
-    </main>
+            <div class="hero-card-right">
+                <div class="graphic-3d">
+                    <svg width="340" height="340" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Futuristic 3D Geometric Polygonal Mesh -->
+                        <path d="M150 30 L240 80 L260 180 L180 260 L90 240 L40 150 L80 60 Z" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.6" fill="rgba(168,85,247,0.03)"/>
+                        <path d="M150 30 L180 120 L260 180 M180 120 L180 260 M180 120 L40 150 M150 30 L80 60 L180 120" stroke="#c084fc" stroke-width="1.5" stroke-opacity="0.8"/>
+                        <path d="M80 60 L90 240 L180 120 M240 80 L180 120 L40 150" stroke="#7e22ce" stroke-width="1" stroke-opacity="0.5"/>
+                        
+                        <!-- Glowing Nodes -->
+                        <circle cx="150" cy="30" r="5" fill="#ffffff" filter="drop-shadow(0 0 8px #a855f7)"/>
+                        <circle cx="240" cy="80" r="4" fill="#c084fc" filter="drop-shadow(0 0 6px #a855f7)"/>
+                        <circle cx="260" cy="180" r="5" fill="#ffffff" filter="drop-shadow(0 0 8px #a855f7)"/>
+                        <circle cx="180" cy="260" r="4" fill="#c084fc" filter="drop-shadow(0 0 6px #a855f7)"/>
+                        <circle cx="90" cy="240" r="5" fill="#ffffff" filter="drop-shadow(0 0 8px #a855f7)"/>
+                        <circle cx="40" cy="150" r="4" fill="#c084fc" filter="drop-shadow(0 0 6px #a855f7)"/>
+                        <circle cx="80" cy="60" r="4" fill="#c084fc" filter="drop-shadow(0 0 6px #a855f7)"/>
+                        <circle cx="180" cy="120" r="7" fill="#ffffff" filter="drop-shadow(0 0 12px #a855f7)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
 
-    <footer id="kontakt">
-        <p>&copy; 2026 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+        <!-- LOWER CARDS SECTION -->
+        <div class="cards-grid">
+            <!-- CARD 1 -->
+            <div class="feature-card">
+                <div>
+                    <h2 class="card-title">MODUŁOWY SYSTEM PROWIZJI</h2>
+                    <p class="card-desc">Elastyczne plany prowizyjne dopasowane do Twoich wyników i skali działania.</p>
+                </div>
+                <div class="card-illustration">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                        <rect x="25" y="25" width="50" height="50" rx="8" stroke="#a855f7" stroke-width="2" fill="rgba(168,85,247,0.1)"/>
+                        <circle cx="50" cy="50" r="12" fill="#c084fc"/>
+                    </svg>
+                </div>
+                <a href="#" class="btn-explore">Explore</a>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="feature-card">
+                <div>
+                    <h2 class="card-title">DEDYROWANE WSPARCIE PARTNERSKIE</h2>
+                    <p class="card-desc">Otrzymaj opiekę dedykowanego menedżera oraz całodobową pomoc techniczną.</p>
+                </div>
+                <div class="card-illustration">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="40" r="16" stroke="#c084fc" stroke-width="2"/>
+                        <path d="M25 75 C25 60 35 55 50 55 C65 55 75 60 75 75" stroke="#a855f7" stroke-width="2"/>
+                    </svg>
+                </div>
+                <a href="#" class="btn-explore">Explore</a>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="feature-card">
+                <div>
+                    <h2 class="card-title">PANEL ANALITYCZNY W CZASIE RZECZYWISTYM</h2>
+                    <p class="card-desc">Śledź konwersje, kliknięcia oraz generowany dochód na żywo w nowoczesnym panelu.</p>
+                </div>
+                <div class="card-illustration">
+                    <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                        <path d="M10 60 L40 35 L70 45 L110 15" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="110" cy="15" r="4" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <a href="#" class="btn-explore">Explore</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2026 Technix-Pro. Wszelkie prawa zastrzeżone.</div>
+        <div class="footer-links">
+            <a href="#">Regulamin</a>
+            <a href="#">Prywatność</a>
+            <a href="#">Kontakt</a>
+        </div>
     </footer>
 
 </body>
